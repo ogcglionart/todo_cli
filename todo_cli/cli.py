@@ -1,16 +1,14 @@
 import json
 from .storage import load, update_tasks
 from .models import TaskManager, Design
-import sys
-from pathlib import Path
-import tomllib  # built-in from Python 3.11+
+from importlib.metadata import version, PackageNotFoundError
 
 def get_version():
-    """Read version directly from pyproject.toml"""
-    toml_path = Path(__file__).parent.parent / "pyproject.toml"
-    with open(toml_path, "rb") as f:
-        data = tomllib.load(f)
-    return data["project"]["version"]
+    """Get installed package version"""
+    try:
+        return version("ogc-todo-cli")
+    except PackageNotFoundError:
+        return "unknown"
 def task_menu(argv = None):
     import sys
     if argv is None:
