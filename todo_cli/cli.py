@@ -5,14 +5,12 @@ import sys
 from pathlib import Path
 import tomllib  # built-in from Python 3.11+
 
-def get_version():
-    """Read version directly from pyproject.toml"""
-    toml_path = Path(__file__).parent.parent / "pyproject.toml"
-    with open(toml_path, "rb") as f:
-        data = tomllib.load(f)
-    return data["project"]["version"]
-def task_menu():
-    if "--version" in sys.argv:
+def get_version(argv = None):
+    import sys
+    if argv is None:
+        argv = sys.argv
+
+    if "--version" in argv or "-v" in argv:
         print(f"todo version {get_version()}")
         return
 
