@@ -1,8 +1,22 @@
 import json
 from .storage import load, update_tasks
 from .models import TaskManager, Design
+import sys
+from pathlib import Path
+import tomllib  # built-in from Python 3.11+
 
+def get_version():
+    """Read version directly from pyproject.toml"""
+    toml_path = Path(__file__).parent.parent / "pyproject.toml"
+    with open(toml_path, "rb") as f:
+        data = tomllib.load(f)
+    return data["project"]["version"]
 def task_menu():
+    if "--version" in sys.argv:
+        print(f"todo version {get_version()}")
+        return
+
+    print("Welcome to your To-Do CLI!\n")
     manager = TaskManager()
     while True:
         menu = {
