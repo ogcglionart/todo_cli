@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: ogc-todo-cli
-Version: 1.0.0
+Version: 1.0.2
 Summary: A simple command-line To-Do manager built in Python
 Author: Nwaokolo Godstime
 Author-email: Nwaokolo Godstime <lionartogc.com@gmail.com>

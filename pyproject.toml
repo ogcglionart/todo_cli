@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ogc-todo-cli"
-version = "1.0.0"
+version = "1.0.2"
 description = "A simple command-line To-Do manager built in Python"
 authors = [{ name="Nwaokolo Godstime", email="lionartogc.com@gmail.com" }]
 readme = "README.md"
